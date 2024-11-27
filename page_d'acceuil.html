@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroVision - Explorez l'univers</title>
+    <style>
+        /* Global Styles */
+        .container {
+            display: flex;
+            justify-content: center; 
+            background-color: #f8b400;
+        }
+
+        .box {
+            position: relative;
+            margin: 10px;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background-image.webp'); /* Remplacez par le chemin correct */
+            background-size: cover; /* L'image couvre toute la page */
+            background-position: center; /* Centrer l'image */
+            background-attachment: fixed; /* L'image reste fixe lors du défilement */
+            background-repeat: no-repeat; /* Pas de répétition de l'image */
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Arial', sans-serif;
+            color: #f8b400; /* Golden color for title */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Navigation Menu Styles */
+        nav.container {
+            width: 100%;
+            background-color: #f8b400;
+        }
+
+        nav.container .box > a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            background-color: #f8b400;
+            text-align: left;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.container .box > a:hover {
+            background-color: #f8b400;
+        }
+
+        nav.container .box ul {
+            display: none;
+            position: absolute;
+            top: 50px; /* Adjust this value based on the height of your top-level link */
+            left: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 200px; /* Set a fixed width for the dropdown */
+            background-color: #f8b400;
+            z-index: 1;
+        }
+
+        nav.container .box ul li {
+            display: block;
+        }
+
+        nav.container .box ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: left;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.container .box ul li a:hover {
+            background-color: #f8b400;
+        }
+
+        /* Show the dropdown menu on hover */
+        nav.container .box:hover ul {
+            display: block;
+        }
+
+        /* Header Styles */
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Search Bar Styles */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 1.1rem;
+            border: 2px solid #f8b400;
+            border-radius: 5px;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            background: #f8b400;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-bar button:hover {
+            background: #243b55;
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 40px;
+            min-height: 60vh;
+            margin-top: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background: #243b55;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+
+            .search-bar input[type="text"] {
+                width: 250px;
+            }
+
+            .search-bar button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>AstroVision</h1>
+        <p>Explorez l'univers et ses mystères.</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="container">
+        <div class="box">
+            <a href="#inscription">Inscription</a>
+        </div>
+        <div class="box">
+            <a href="#planetes">Planètes</a>
+            <ul>
+                <li><a href="soleil.html">soleil</a></li>
+                <li><a href="mercure.html">mercure</a></li>
+                <li><a href="venus.html">venus</a></li>
+                <li><a href="terre.html">terre</a></li>
+                <li><a href="lune.html">lune</a></li>
+                <li><a href="mars.html">mars</a></li>
+                <li><a href="jupiter.html">jupiter</a></li>
+                <li><a href="saturne.html">saturne</a></li>
+                <li><a href="uranus.html">uranus</a></li>
+                <li><a href="neptune.html">neptune</a></li>
+                <li><a href="pluton.html">pluton</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <a href="#systeme-solaire">Système Solaire</a>
+        </div>
+        <div class="box">
+            <a href="#quiz">Quiz</a>
+        </div>
+        <div class="box">
+            <a href="#videos">Vidéo</a>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <form action="#" method="GET">
+            <input type="text" placeholder="Rechercher dans l'univers..." name="search">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section id="inscription">
+            <h2>Inscription</h2>
+            <p>Inscrivez-vous pour bénéficier d'un accès exclusif à des ressources, des quiz et des vidéos éducatives.</p>
+        </section>
+
+        <section id="planetes">
+            <h2>Les Planètes</h2>
+            <p>Apprenez tout sur les planètes de notre système solaire et au-delà. Découvrez leurs caractéristiques uniques et leurs missions d'exploration.</p>
+        </section>
+        <section id="systeme-solaire">
+            <h2>Le Système Solaire</h2>
+            <p>Explorez le système solaire : de la chaleur du Soleil aux glaces lointaines de Neptune.</p>
+        </section>
+
+        <section id="quiz">
+            <h2>Quiz Astronomique</h2>
+            <p>Testez vos connaissances sur l'astronomie avec notre quiz interactif ! Parfait pour les curieux de l'univers.</p>
+        </section>
+
+        <section id="videos">
+            <h2>Vidéo</h2>
+            <p>Regardez nos vidéos fascinantes sur les dernières découvertes scientifiques et les événements célestes à venir.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AstroVision. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
